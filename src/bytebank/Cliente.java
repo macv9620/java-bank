@@ -1,10 +1,25 @@
 package bytebank;
 
-public class Cliente {
+public class Cliente implements InterfazPuedeAutenticar{
 
     private String nombre;
     private String documento;
     private String telefono;
+    private String clave;
+
+    public void setClave(String clave){
+        this.clave = clave;
+    }
+
+    public boolean iniciarSesion(String clave){
+        if(clave == this.clave){
+            System.out.println("Login exitoso");
+            return true;
+        } else {
+            System.out.println("Login erroneo");
+            return false;
+        }
+    }
 
     public String getNombre() {
         return nombre;
